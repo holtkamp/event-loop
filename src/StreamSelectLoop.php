@@ -268,7 +268,7 @@ final class StreamSelectLoop implements LoopInterface
      */
     private function streamSelect(array &$read, array &$write, $timeout)
     {
-        if ($read || $write) {
+        if ($read && $write) {
             // We do not usually use or expose the `exceptfds` parameter passed to the underlying `select`.
             // However, Windows does not report failed connection attempts in `writefds` passed to `select` like most other platforms.
             // Instead, it uses `writefds` only for successful connection attempts and `exceptfds` for failed connection attempts.
